@@ -1,6 +1,6 @@
 "use client";
 import { useRef, useEffect } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { HeroFallback } from "./HeroFallback";
 
@@ -45,29 +45,29 @@ const fragmentShader = `
 
   void main() {
     vec2 uv = vUv;
-    uv += uMouse * 0.05;
+    uv += uMouse * 0.08;
     float n = fbm(uv * 3.0 + uTime * 0.15);
     float n2 = fbm(uv * 5.0 - uTime * 0.1 + n);
     float val = fbm(uv * 2.0 + n2);
-    // Monochrome output
-    vec3 col = vec3(val * 0.6 + 0.1);
+    // Brighter monochrome — range 0.15 to 0.55 so it's visible on dark bg
+    float brightness = val * 0.4 + 0.15;
+    vec3 col = vec3(brightness);
     gl_FragColor = vec4(col, 1.0);
   }
 `;
 
 function ShaderPlane() {
   const meshRef = useRef<THREE.Mesh>(null);
-  const { size } = useThree();
   const uniforms = useRef({
     uTime: { value: 0 },
-    uMouse: { value: new THREE.Vector2(0, 0) },
+    uMouse: { value: new THREE.Vector2(0.5, 0.5) },
   });
 
   useEffect(() => {
     const onMove = (e: MouseEvent) => {
       uniforms.current.uMouse.value.set(
-        (e.clientX / window.innerWidth) * 2 - 1,
-        -(e.clientY / window.innerHeight) * 2 + 1
+        e.clientX / window.innerWidth,
+        1.0 - e.clientY / window.innerHeight
       );
     };
     window.addEventListener("mousemove", onMove);
@@ -91,7 +91,6 @@ function ShaderPlane() {
 }
 
 export default function ThreeShader() {
-  // Skip on touch + reduced motion
   if (typeof window !== "undefined") {
     if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
       return <HeroFallback />;
@@ -104,7 +103,8 @@ export default function ThreeShader() {
   return (
     <Canvas
       camera={{ position: [0, 0, 1] }}
-      gl={{ antialias: false, alpha: false }}
+      gl={{ antialias: false, alpha: true }}
+      style={{ background: "transparent" }}
       dpr={[1, 1.5]}
       className="h-full w-full"
     >
