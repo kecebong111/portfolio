@@ -11,16 +11,16 @@ export default function Home() {
     <main className="flex flex-col">
       <ThemeToggle />
       <Hero />
-      <MotionSection>
+      <MotionSection delay={0.1}>
         <Ships />
       </MotionSection>
-      <MotionSection>
+      <MotionSection delay={0.2}>
         <Ctf />
       </MotionSection>
-      <MotionSection>
+      <MotionSection delay={0.3}>
         <Achievements />
       </MotionSection>
-      <MotionSection>
+      <MotionSection delay={0.4}>
         <Footer />
       </MotionSection>
     </main>
