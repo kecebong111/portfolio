@@ -1,33 +1,9 @@
 const achievements = [
   {
-    year: "2026",
-    title: "technical lead — OTI Academy",
-    detail: "leading frontend + backend teams, coordinating development workflows",
-    type: "work",
-  },
-  {
     year: "2025",
     title: "webcraft UGM",
-    detail: "2nd place — fullstack category",
+    detail: "2nd place — fullstack",
     type: "award",
-  },
-  {
-    year: "2025",
-    title: "frontend engineer — malpres.com",
-    detail: "navbar, footer, faq, coming soon, galeri, about — 100+ users",
-    type: "work",
-  },
-  {
-    year: "2025",
-    title: "picoctf — web exploitation",
-    detail: "cleared every easy challenge across all events",
-    type: "ctf",
-  },
-  {
-    year: "2025",
-    title: "picoctf — forensics",
-    detail: "CanYouSee · Glory of the Garden · information · m00nwalk · WhitePages · So Meta · Shark on wire 1 · flags are stepic",
-    type: "ctf",
   },
 ];
 
@@ -37,12 +13,6 @@ const skills = [
   { category: "security", items: ["Burp Suite", "Wireshark", "exiftool", "Linux", "PicoCTF"] },
 ];
 
-const TYPE_LABELS: Record<string, string> = {
-  work: "work",
-  award: "award",
-  ctf: "ctf",
-};
-
 export default function Achievements() {
   return (
     <section id="achievements" className="px-8 md:px-16 py-32">
@@ -51,7 +21,6 @@ export default function Achievements() {
           (04) achievements
         </span>
 
-        {/* timeline */}
         <div className="mt-12 flex flex-col divide-y divide-border">
           {achievements.map((a) => (
             <div
@@ -61,7 +30,7 @@ export default function Achievements() {
               <div className="flex items-center gap-3 min-w-[120px]">
                 <span className="font-mono text-sm text-muted-foreground">{a.year}</span>
                 <span className="font-mono text-xs text-muted-foreground/60 border border-border px-1.5 py-0.5 rounded-sm">
-                  {TYPE_LABELS[a.type]}
+                  {a.type}
                 </span>
               </div>
               <div className="flex-1">
@@ -72,7 +41,6 @@ export default function Achievements() {
           ))}
         </div>
 
-        {/* skills grid */}
         <div className="mt-20">
           <span className="font-mono text-xs text-muted-foreground tracking-widest uppercase">
             stack

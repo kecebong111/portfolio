@@ -30,7 +30,7 @@
   --radius-lg: var(--radius);
 }
 
-/* LIGHT MODE Ã¢â‚¬â€ warm off-white editorial */
+/* LIGHT MODE ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â warm off-white editorial */
 :root {
   --background: oklch(0.98 0.003 80);       /* warm off-white */
   --foreground: oklch(0.10 0.005 80);        /* warm near-black */
@@ -54,7 +54,7 @@
   --radius: 0.25rem;
 }
 
-/* DARK MODE Ã¢â‚¬â€ near-black cinematic with cream text */
+/* DARK MODE ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â near-black cinematic with cream text */
 .dark {
   --background: oklch(0.07 0.003 80);       /* #0a0a0a-ish warm */
   --foreground: oklch(0.92 0.01 80);        /* cream */
@@ -82,12 +82,13 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
     font-feature-settings: "ss01", "cv11", "tnum";
     letter-spacing: -0.011em;
   }
   html {
     @apply font-sans;
+  background-color: oklch(0.07 0.003 80);
     scroll-behavior: smooth;
   }
   .font-mono {

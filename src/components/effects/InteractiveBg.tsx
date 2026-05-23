@@ -19,16 +19,10 @@ export default function InteractiveBg() {
     };
 
     const animate = () => {
-      cx = lerp(cx, x, 0.05);
-      cy = lerp(cy, y, 0.05);
+      cx = lerp(cx, x, 0.04);
+      cy = lerp(cy, y, 0.04);
       if (bgRef.current) {
-        bgRef.current.style.background = `
-          radial-gradient(ellipse 80vw 60vh at ${cx}% ${cy}%,
-            oklch(0.18 0 0) 0%,
-            oklch(0.10 0 0) 40%,
-            oklch(0.07 0 0) 100%
-          )
-        `;
+        bgRef.current.style.background = `radial-gradient(ellipse 60vw 50vh at ${cx}% ${cy}%, oklch(0.22 0 0) 0%, transparent 70%)`;
       }
       raf = requestAnimationFrame(animate);
     };
@@ -46,10 +40,7 @@ export default function InteractiveBg() {
     <div
       ref={bgRef}
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 -z-10 transition-none"
-      style={{
-        background: "oklch(0.07 0 0)",
-      }}
+      className="pointer-events-none fixed inset-0 -z-10"
     />
   );
 }
