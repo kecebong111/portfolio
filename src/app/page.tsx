@@ -7,12 +7,14 @@ import TechTicker from "@/components/effects/TechTicker";
 
 export default function Home() {
   return (
-    <main className="flex flex-col">
+    <main className="flex flex-col relative">
       <Hero />
       <TechTicker />
-      <Ships />
-      <Ctf />
-      <Achievements />
+      <div className="dot-grid">
+        <Ships />
+        <Ctf />
+        <Achievements />
+      </div>
       <Footer />
     </main>
   );

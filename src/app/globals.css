@@ -30,7 +30,7 @@
   --radius-lg: var(--radius);
 }
 
-/* LIGHT MODE â€” warm off-white editorial */
+/* LIGHT MODE Ã¢â‚¬â€ warm off-white editorial */
 :root {
   --background: oklch(0.98 0.003 80);       /* warm off-white */
   --foreground: oklch(0.10 0.005 80);        /* warm near-black */
@@ -54,7 +54,7 @@
   --radius: 0.25rem;
 }
 
-/* DARK MODE â€” near-black cinematic with cream text */
+/* DARK MODE Ã¢â‚¬â€ near-black cinematic with cream text */
 .dark {
   --background: oklch(0.07 0.003 80);       /* #0a0a0a-ish warm */
   --foreground: oklch(0.92 0.01 80);        /* cream */
@@ -103,4 +103,21 @@ body[data-custom-cursor="true"] {
 /* Ensure sections are always visible regardless of JS state */
 section, footer {
   opacity: 1 !important;
+}
+/* subtle dot grid pattern for section backgrounds */
+.dot-grid {
+  background-image: radial-gradient(oklch(0.25 0 0) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* section divider glow */
+.section-glow {
+  position: relative;
+}
+.section-glow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 40% at 50% 0%, oklch(0.20 0 0) 0%, transparent 70%);
+  pointer-events: none;
 }

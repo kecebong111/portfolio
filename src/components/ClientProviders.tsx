@@ -1,6 +1,7 @@
 "use client";
 import dynamic from "next/dynamic";
 import NoiseGrain from "@/components/effects/NoiseGrain";
+import InteractiveBg from "@/components/effects/InteractiveBg";
 
 const Cursor = dynamic(() => import("@/components/motion/Cursor"), { ssr: false });
 const SmoothScroll = dynamic(() => import("@/components/motion/SmoothScroll"), { ssr: false });
@@ -10,6 +11,7 @@ const ThemeToggle = dynamic(() => import("@/components/ThemeToggle"), { ssr: fal
 export default function ClientProviders({ children }: { children: React.ReactNode }) {
   return (
     <>
+      <InteractiveBg />
       <NoiseGrain />
       <Cursor />
       <SmoothScroll />
