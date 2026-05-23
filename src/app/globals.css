@@ -30,7 +30,7 @@
   --radius-lg: var(--radius);
 }
 
-/* LIGHT MODE — warm off-white editorial */
+/* LIGHT MODE â€” warm off-white editorial */
 :root {
   --background: oklch(0.98 0.003 80);       /* warm off-white */
   --foreground: oklch(0.10 0.005 80);        /* warm near-black */
@@ -54,7 +54,7 @@
   --radius: 0.25rem;
 }
 
-/* DARK MODE — near-black cinematic with cream text */
+/* DARK MODE â€” near-black cinematic with cream text */
 .dark {
   --background: oklch(0.07 0.003 80);       /* #0a0a0a-ish warm */
   --foreground: oklch(0.92 0.01 80);        /* cream */
@@ -94,4 +94,13 @@
     font-family: var(--font-mono);
     letter-spacing: 0;
   }
+}
+/* Hide native cursor only when custom cursor is active */
+body[data-custom-cursor="true"] {
+  cursor: none;
+}
+
+/* Ensure sections are always visible regardless of JS state */
+section, footer {
+  opacity: 1 !important;
 }

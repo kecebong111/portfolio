@@ -22,8 +22,8 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggle}
-      aria-label="toggle theme"
-      className="fixed top-6 right-6 z-50 text-xs font-mono text-muted-foreground hover:text-foreground transition-colors"
+      aria-label={`switch to ${dark ? "light" : "dark"} mode`}
+      className="fixed top-6 right-6 z-50 font-mono text-xs text-muted-foreground hover:text-foreground transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground/40"
     >
       {dark ? "light" : "dark"}
     </button>
