@@ -12,11 +12,10 @@ export default function ClientProviders({ children }: { children: React.ReactNod
     <>
       <NoiseGrain />
       <Cursor />
+      <SmoothScroll />
       <CommandPalette />
       <ThemeToggle />
-      <SmoothScroll>
-        {children}
-      </SmoothScroll>
+      {children}
     </>
   );
 }
