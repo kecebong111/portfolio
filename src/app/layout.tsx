@@ -15,7 +15,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "kecebong111",
+  title: "kecebong",
   description: "shipping over talking.",
 };
 

@@ -15,7 +15,7 @@ const ships = [
     title: "portfolio",
     role: "this site",
     description: "what you are looking at right now",
-    href: "https://github.com/kecebong111/portfolio",
+    href: "https://kecebong111-portfolio.vercel.app",
   },
 ];
 
@@ -23,7 +23,6 @@ export default function Ships() {
   return (
     <section id="ships" className="px-6 py-32 relative">
       <div className="max-w-4xl mx-auto">
-        {/* section label */}
         <span className="text-xs font-mono text-muted-foreground tracking-widest uppercase">
           (02) ships
         </span>
